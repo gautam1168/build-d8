@@ -11,6 +11,7 @@ RUN apt install -y -qq --no-install-recommends \
     python-is-python3 \
     python3 \
     software-properties-common \
+    sudo \
     xz-utils && npm i -g n && n latest
 
 WORKDIR /root
@@ -18,7 +19,6 @@ ENV PATH=${PATH}:/root/depot_tools:/root/v8/tools/dev
 
 RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git --depth=1
 
-RUN apt install sudo # TODO move
 # snapcraft in docker and https://circleci.com/docs/2.0/high-uid-error/
 # you can find it use `find / \! -uid 0 -print`
 RUN fetch v8 && \
