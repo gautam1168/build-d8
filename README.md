@@ -62,6 +62,8 @@ cd /root/v8/out/x64.release
 ```
 
 ### Which version of d8 is the latest
-According to [this blogpost](https://v8.dev/docs/release-process) on v8's blog, the release process of v8 is coupled with chrome. You 
-probably want the latest version of d8 that is associated with the latest chrome release. To find this version you have to look at [OmahaProxy](https://omahaproxy.appspot.com/).
-If you are using this container you want the stable branch for linux. Look at the the column `true branch` in the table and get the number corresponding to `linux` and `stable` channel. At the time of writing this, the number is `5563`. So the branch you want to checkout is `chromium/5563`. 
+To get the latest version of v8 you can list the branches that start with `branch-heads`. You can use this command to get the latest version:
+```
+git branch -a | grep remotes/branch-heads | awk -F/ '{print $NF}' | sort -t. -k1,1n
+r -k2,2nr -k3,3nr | head -n1
+```
