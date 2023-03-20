@@ -48,5 +48,6 @@ cd /root/v8/out/x64.release
 ### Which version of d8 is the latest
 To get the latest version of v8 you can list the branches that start with `branch-heads`. You can use this command to get the latest version:
 ```
- git branch -a | grep remotes/branch-heads | awk -F/ '{print $NF}' | sort -t. -k1,1nr -k2,2nr -k3,3nr | head -n1
+ git branch -a | grep remotes/branch-heads | awk -F/ '{print $NF}' \
+ | sort -t. -k1,1nr -k2,2nr -k3,3nr | head -n1
 ```
