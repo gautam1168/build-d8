@@ -25,8 +25,7 @@ REPOSITORY   TAG        IMAGE ID       CREATED        SIZE
 d8           trunk      fcd7f69f0e42   3 weeks ago    8.31GB
 ```
 
-Once you have this, you can run a container with this image using the following command, which
-will drop you into a shell inside the container
+Once you have this, you can start a shell with this image using the following command.
 ```
 docker run --rm -it d8:trunk bash
 ```
