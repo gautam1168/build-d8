@@ -25,25 +25,10 @@ REPOSITORY   TAG        IMAGE ID       CREATED        SIZE
 d8           trunk      fcd7f69f0e42   3 weeks ago    8.31GB
 ```
 
-Once you have this, you can run a container with this image using the following command:
+Once you have this, you can run a container with this image using the following command, which
+will drop you into a shell inside the container
 ```
-docker run -d -t d8:trunk
-```
-
-You can see the running container by running the following command:
-```
-docker ps
-```
-
-You will see something like this:
-```
-CONTAINER ID   IMAGE      COMMAND   CREATED              STATUS              PORTS     NAMES
-cfdab51b3818   d8:trunk   "fish"    About a minute ago   Up About a minute             compassionate_lamport
-```
-
-You can then open a shell inside this container using:
-```
-docker exec -it cfdab51b3818 fish
+docker run --rm -it d8:trunk bash
 ```
 
 You can then build the d8 executable inside the container by running the following commands
@@ -64,6 +49,5 @@ cd /root/v8/out/x64.release
 ### Which version of d8 is the latest
 To get the latest version of v8 you can list the branches that start with `branch-heads`. You can use this command to get the latest version:
 ```
-git branch -a | grep remotes/branch-heads | awk -F/ '{print $NF}' | sort -t. -k1,1n
-r -k2,2nr -k3,3nr | head -n1
+ git branch -a | grep remotes/branch-heads | awk -F/ '{print $NF}' | sort -t. -k1,1nr -k2,2nr -k3,3nr | head -n1
 ```
